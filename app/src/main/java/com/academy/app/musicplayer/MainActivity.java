@@ -49,20 +49,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        song1 = MediaPlayer.create(this, R.raw.ardoustask);
-//        song1 = MediaPlayer.create(this, songID);
+//
+//        song1 = MediaPlayer.create(this, R.raw.ardoustask);
+          song1 = MediaPlayer.create(this, songID);
 //        song2 = MediaPlayer.create(this, R.raw.bargainsinatuxedo);
         Intent thisIntent = getIntent();
         String songID = thisIntent.getStringExtra("songMessage");
         MediaMetadataRetriever songInfo = new MediaMetadataRetriever();
-        Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ardoustask);
-//        Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + songID);
+//        Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ardoustask);
+        Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + songID);
         songInfo.setDataSource(this, mediaPath);
         songTitle = songInfo.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
         songArtist = songInfo.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
         songID = songInfo.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-//        MediaPlayer.create(this, Integer.parseInt(songID));
+        MediaPlayer.create(this, Integer.parseInt(songID));
 
 
 
